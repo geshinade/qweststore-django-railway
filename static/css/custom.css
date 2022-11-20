@@ -59,13 +59,3 @@ ul.thumb li img{
   height: 80px;
   border: 1px solid grey;
 }
-
-/* Bootstrap Carousel */
-.carousel-item {
-  height: 25rem;
-  background: #000;
-}
-
-.carousel-item img {
-  opacity: 0.5;
-}

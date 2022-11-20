@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'store',
     'carts',
     'orders',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'qweststore.urls'
@@ -131,6 +133,10 @@ STATICFILES_DIRS = [
     'qweststore/static',
 ]
 
+# Simplified static file serving
+# https://warehouse.python.org/project/whitenoise
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # media files configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
@@ -146,6 +152,15 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sendemailwithdjango@gmail.com'
 EMAIL_HOST_PASSWORD = 'gvyimfffpbxazsuq'
 EMAIL_USE_TLS = True
+
+AWS_ACCESS_KEY_ID = 'AKIA445MZD6YMJCSXWV7'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'qwest-store-files'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Default primary key field type
